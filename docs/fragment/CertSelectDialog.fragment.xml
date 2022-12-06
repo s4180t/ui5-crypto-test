@@ -1,0 +1,28 @@
+<TableSelectDialog
+    xmlns="sap.m"
+    id="CertSelectDialog"
+    items="{/certs}"
+    confirm="onCertSelectDialogConfirm"
+    cancel="onCertSelectDialogCancel"
+    search="onCertSearch"
+    contentHeight="auto"
+    contentWidth="auto">
+    <columns>
+        <Column width="50%">
+            <Label text="{i18n>SubjectName}" />
+        </Column>
+        <Column width="30%">
+            <Label text="{i18n>Thumbprint}" />
+        </Column>
+        <Column width="20%">
+            <Label text="{i18n>ValidToDate}" />
+        </Column>
+    </columns>
+    <items>
+        <ColumnListItem>
+            <Text text="{SubjectName}" />
+            <Text text="{Thumbprint}" />
+            <Text text="{ path: 'ValidToDate', type: 'sap.ui.model.type.DateTime' }" />
+        </ColumnListItem>
+    </items>
+</TableSelectDialog>
