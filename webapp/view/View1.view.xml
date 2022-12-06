@@ -1,0 +1,51 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:unified="sap.ui.unified"
+    xmlns:layout="sap.ui.layout"
+    controllerName="ui5.crypto.ui5cryptotest.controller.View1"
+    displayBlock="true">
+    <Shell>
+        <App>
+            <Page
+                title="{i18n>title}"
+                class="sapUiContentPadding">
+                <layout:Grid>
+                    <unified:FileUploader
+                        change="handleFileChange"
+                        width="100%">
+                        <unified:layoutData>
+                            <layout:GridData span="L6 M6 S12" />
+                        </unified:layoutData>
+                    </unified:FileUploader>
+                    <TextArea
+                        value="{/target}"
+                        editable="false"
+                        rows="10"
+                        width="100%">
+                        <layoutData>
+                            <layout:GridData span="L12 M12 S12" />
+                        </layoutData>
+                    </TextArea>
+                    <Button
+                        enabled="{= !!${/target} }"
+                        text="{i18n>Verify}"
+                        press="handleVerify"
+                        width="100%">
+                        <layoutData>
+                            <layout:GridData span="L2 M4 S12" />
+                        </layoutData>
+                    </Button>
+                    <ObjectStatus
+                        state="{/state}"
+                        icon="{= ${/state} ? 'sap-icon://message-success' : 'sap-icon://message-error'}"
+                        class="sapUiTinyMarginTop">
+                        <layoutData>
+                            <layout:GridData span="L10 M8 S12" />
+                        </layoutData>
+                    </ObjectStatus>
+                </layout:Grid>
+            </Page>
+        </App>
+    </Shell>
+</mvc:View>
