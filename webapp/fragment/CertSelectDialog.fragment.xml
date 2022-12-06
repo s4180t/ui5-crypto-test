@@ -4,9 +4,7 @@
     items="{/certs}"
     confirm="onCertSelectDialogConfirm"
     cancel="onCertSelectDialogCancel"
-    search="onCertSearch"
-    contentHeight="auto"
-    contentWidth="auto">
+    search="onCertSearch">
     <columns>
         <Column width="50%">
             <Label text="{i18n>SubjectName}" />
