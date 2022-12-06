@@ -59,7 +59,8 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "ui5.crypto.ui5cryptotest.i18n.i18n"
+                    "bundleName": "ui5.crypto.ui5cryptotest.i18n.i18n",
+                    "supportedLocales": []
                 }
             },
             "": {
