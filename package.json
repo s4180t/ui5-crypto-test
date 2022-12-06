@@ -17,7 +17,7 @@
   "scripts": {
     "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#ui5cryptoui5cryptotest-display\"",
     "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#ui5cryptoui5cryptotest-display\"",
-    "build": "ui5 build self-contained --config=ui5.yaml --clean-dest --dest docs",
+    "build": "ui5 build -a self-contained --config=ui5.yaml --clean-dest --dest docs",
     "deploy": "fiori verify",
     "deploy-config": "fiori add deploy-config",
     "start-noflp": "fiori run --open \"index.html?sap-ui-xx-viewCache=false\"",
