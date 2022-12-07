@@ -58,7 +58,7 @@
                     "bundleLocale": "en",
                     "fallbackLocale": "en",
                     "bundleName": "ui5.crypto.ui5cryptotest.i18n.i18n",
-                    "supportedLocales": ["en", "ru"]
+                    "supportedLocales": ["en"]
                 }
             },
             "": {
