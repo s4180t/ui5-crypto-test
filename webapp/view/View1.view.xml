@@ -33,7 +33,7 @@
                         press="handleVerify"
                         width="100%">
                         <layoutData>
-                            <layout:GridData span="L2 M4 S12" />
+                            <layout:GridData span="L2 M4 S6" />
                         </layoutData>
                     </Button>
                     <ObjectStatus
@@ -41,9 +41,29 @@
                         icon="{= ${/state} ? 'sap-icon://message-success' : 'sap-icon://message-error'}"
                         class="sapUiTinyMarginTop">
                         <layoutData>
-                            <layout:GridData span="L10 M8 S12" />
+                            <layout:GridData span="L2 M2 S1" />
                         </layoutData>
                     </ObjectStatus>
+                    <Button
+                        enabled="{= !!${/target} }"
+                        text="{i18n>DownloadSigned}"
+                        press="handleDownload"
+                        width="100%">
+                        <layoutData>
+                            <layout:GridData
+                                span="L2 M4 S6"
+                                linebreak="true" />
+                        </layoutData>
+                    </Button>
+                    <Link
+                        text="{i18n>ValidationService}"
+                        href="https://www.gosuslugi.ru/pgu/eds/"
+                        target="_blank"
+                        class="sapUiTinyMarginTop">
+                        <layoutData>
+                            <layout:GridData span="L2 M4 S6" />
+                        </layoutData>
+                    </Link>
                 </layout:Grid>
             </Page>
         </App>

@@ -213,6 +213,14 @@ sap.ui.define(
                         oView.getModel().setProperty("/state", sState);
                     });
             },
+
+            handleDownload: function () {
+                const sSignedMessage = this.getView().getModel().getProperty("/target");
+                const $link = document.createElement("a");
+                $link.href = `data:application/octet-stream;base64,${sSignedMessage}`;
+                $link.download = "signed.bin";
+                $link.click();
+            },
         });
     }
 );
