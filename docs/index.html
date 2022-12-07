@@ -13,6 +13,7 @@
     <script
         id="sap-ui-bootstrap"
         src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        data-sap-ui-preload="async"
         data-sap-ui-theme="sap_fiori_3"
         data-sap-ui-resourceroots='{
             "ui5.crypto.ui5cryptotest": "./"
@@ -20,11 +21,12 @@
         data-sap-ui-compatVersion="edge"
         data-sap-ui-async="true"
         data-sap-ui-frameOptions="trusted"
+        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
     ></script>
-    <script id="locate-reuse-libs" src="./utils/locate-reuse-libs.js"
+    <!-- <script id="locate-reuse-libs" src="./utils/locate-reuse-libs.js"
         data-sap-ui-manifest-uri="./manifest.json"
         data-sap-ui-componentName="ui5.crypto.ui5cryptotest">
-    </script> 
+    </script>  -->
 </head>
 <body class="sapUiBody sapUiSizeCompact" id="content">
     <div

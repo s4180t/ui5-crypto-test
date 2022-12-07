@@ -7,8 +7,6 @@
         "applicationVersion": {
             "version": "0.0.1"
         },
-        "title": "{{appTitle}}",
-        "description": "{{appDescription}}",
         "resources": "resources.json",
         "crossNavigation": {
             "inbounds": {
@@ -19,8 +17,6 @@
                     },
                     "semanticObject": "ui5crypto",
                     "action": "display",
-                    "title": "{{flpTitle}}",
-                    "subTitle": "{{flpSubtitle}}",
                     "icon": ""
                 }
             }
@@ -59,6 +55,8 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
+                    "bundleLocale": "en",
+                    "fallbackLocale": "en",
                     "bundleName": "ui5.crypto.ui5cryptotest.i18n.i18n",
                     "supportedLocales": []
                 }
