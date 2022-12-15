@@ -39,12 +39,12 @@ sap.ui.define(
                         const oCertificate = yield oCertificates.Item(1);
                         const oSigner = yield cadesplugin.CreateObjectAsync("CAdESCOM.CPSigner");
                         yield oSigner.propset_Certificate(oCertificate);
-                        yield oSigner.propset_CheckCertificate(true);
-                        const oSignedData = yield cadesplugin.CreateObjectAsync("CAdESCOM.CadesSignedData");
+                        // yield oSigner.propset_CheckCertificate(true);
+                        const oSignedData = yield cadesplugin.CreateObjectAsync("CAdESCOM.SignedXML");
                         yield oSignedData.propset_Content(sDataToSign);
                         let sSignedMessage = "";
                         try {
-                            sSignedMessage = yield oSignedData.SignCades(oSigner, cadesplugin.CADESCOM_CADES_BES);
+                            sSignedMessage = yield oSignedData.Sign(oSigner);
                         } catch (oError) {
                             const sErr = cadesplugin.getLastError(oError);
                             MessageBox.error("Failed to create signature. Error: " + sErr);
@@ -63,9 +63,9 @@ sap.ui.define(
             return new Promise(function (resolve, reject) {
                 cadesplugin.async_spawn(
                     function* (args) {
-                        const oSignedData = yield cadesplugin.CreateObjectAsync("CAdESCOM.CadesSignedData");
+                        const oSignedData = yield cadesplugin.CreateObjectAsync("CAdESCOM.SignedXML");
                         try {
-                            yield oSignedData.VerifyCades(sSignedMessage, cadesplugin.CADESCOM_CADES_BES);
+                            yield oSignedData.Verify(sSignedMessage);
                         } catch (oError) {
                             const sErr = cadesplugin.getLastError(oError);
                             MessageBox.error("Failed to verify signature. Error: " + sErr);
@@ -118,21 +118,21 @@ sap.ui.define(
             onInit: function () {},
 
             handleFileChange: async function (oEvent) {
-                function getBase64(file) {
+                function getXML(file) {
                     return new Promise((resolve, reject) => {
                         const reader = new FileReader();
-                        reader.readAsDataURL(file);
+                        reader.readAsText(file);
                         reader.onload = () => resolve(reader.result);
                         reader.onerror = error => reject(error);
                     });
                 }
-                const sBase64Data = await getBase64(oEvent.getParameter("files")[0]);
+                const sXmlData = await getXML(oEvent.getParameter("files")[0]);
                 const sCertHash = await this._askForCertificate();
                 const oView = this.getView();
                 oView.setBusy(true);
                 let sSignedMessage;
                 try {
-                    sSignedMessage = await SignCreate(sCertHash, sBase64Data);
+                    sSignedMessage = await SignCreate(sCertHash, sXmlData);
                 } catch (err) {
                     Log.error(err);
                 }
@@ -217,8 +217,8 @@ sap.ui.define(
             handleDownload: function () {
                 const sSignedMessage = this.getView().getModel().getProperty("/target");
                 const $link = document.createElement("a");
-                $link.href = `data:application/octet-stream;base64,${sSignedMessage}`;
-                $link.download = "signed.bin";
+                $link.href = `data:text/plain;charset=utf-8,${encodeURIComponent(sSignedMessage)}`;
+                $link.download = "signed.xml";
                 $link.click();
             },
         });
