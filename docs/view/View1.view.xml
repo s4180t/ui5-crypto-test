@@ -55,15 +55,6 @@
                                 linebreak="true" />
                         </layoutData>
                     </Button>
-                    <Link
-                        text="{i18n>ValidationService}"
-                        href="https://www.gosuslugi.ru/pgu/eds/"
-                        target="_blank"
-                        class="sapUiTinyMarginTop">
-                        <layoutData>
-                            <layout:GridData span="L2 M4 S6" />
-                        </layoutData>
-                    </Link>
                 </layout:Grid>
             </Page>
         </App>
