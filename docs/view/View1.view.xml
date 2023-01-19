@@ -21,7 +21,7 @@
                     <TextArea
                         value="{/target}"
                         editable="false"
-                        rows="10"
+                        rows="20"
                         width="100%">
                         <layoutData>
                             <layout:GridData span="L12 M12 S12" />
