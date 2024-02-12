@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source: https://docs.cryptopro.ru/cades/plugin/plugin-samples/plugin-samples-sign-xml -->
+<Envelope xmlns="urn:envelope">
+  <Data>
+   Hello, World!
+  </Data>
+  <Node xml:id="nodeID">
+   Hello, Node!
+  </Node>
+</Envelope>
